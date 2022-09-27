@@ -1,0 +1,13 @@
+- name: mirror-repository
+  uses: yesolutions/mirror-action@v0.6.0
+  on: [push]
+  ...
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        - uses: yesolutions/mirror-action@master
+          with:
+            REMOTE: 'https://github.com/pulsar-edit/pulsar-edit.github.io.git'
+            GIT_USERNAME: softcode589
+            GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
